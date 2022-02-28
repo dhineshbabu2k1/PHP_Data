@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
     <title>PHP Training_Database from Digisailor</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <link href="bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php
 session_start();
-include("dbconnection.php");
+include "dbconnection.php";
 
-if(isset($_POST['Name']))
-{
-    $nm= $_POST["Name"];
-    $Ag=$_POST["Age"];
-    $dob=$_POST["DOB"];
-    $mob=$_POST["Mobile"];
-    $email=$_POST["Email"];
-    
-    if($nm!="" && $Ag!=""&& $dob!=""&& $mob!=""&& $email!="")
-    {       
-        mysqli_query($con,"insert into empdet (Nm,Age,Dob,Mob,Email) values ('$nm','$Ag','$dob','$mob','$email')");
+if (isset($_POST['Name'])) {
+    $nm = $_POST["Name"];
+    $Ag = $_POST["Age"];
+    $dob = $_POST["DOB"];
+    $mob = $_POST["Mobile"];
+    $email = $_POST["Email"];
+
+    if ($nm != "" && $Ag != "" && $dob != "" && $mob != "" && $email != "") {
+        mysqli_query($con, "insert into empdet (Nm,Age,Dob,Mob,Email) values ('$nm','$Ag','$dob','$mob','$email')");
         echo "<script>window.location.href='ViewAll.php'</script>";
         exit();
-    }
-    else
-    {
+    } else {
 
         echo "<br><br><br> please fill all fields";
     }
@@ -38,18 +34,17 @@ if(isset($_POST['Name']))
 //    //$nm= $_POST["Nm"];
 //    //$em=$_POST["Age"];
 
-// }
-?>
+// } ?>
 
 <div id="login-page">
 	  	<div class="container">
-      
-	  	
+
+
 		      <form action="" method="POST">
 		        <h2 class="form-login-heading">Employee Information</Details></h2>
-                  
+
 		        <div>
-  
+
                     <br>
                     <label>Name</label>
 		            <input type="text" name="Name" placeholder="Name Please" autofocus><br>
@@ -63,24 +58,24 @@ if(isset($_POST['Name']))
 		            <input type="email" name="Email" placeholder="E Mail ID Please"><br>
 		            <!-- <input type="submit" class="sub" value="Submit"> -->
                     <button  name="submit"  value="submit" type="submit">Save</button>
-                    
+
 		        </div>
-		      </form>	  	
+		      </form>
               <button onclick="window.location.href='ViewAll.php'">View All</button>
 	  	</div>
 	  </div>
 
 
-      
- <?php  
+
+ <?php
 
 // if ($_SERVER["REQUEST_METHOD"]=="POST")
 // {
 //     $nm= $_POST["Name"];
 //      $Ag=$_POST["Age"];
 
-//      mysqli_query($con,"insert into EmpDet (Nm,Age) values ('".$nm."','.$Ag.')");     
-     
+//      mysqli_query($con,"insert into EmpDet (Nm,Age) values ('".$nm."','.$Ag.')");
+
 //      echo "<script>window.location.href=ViewAll.php</script>";
 //      exit();
 // }
@@ -89,10 +84,10 @@ if(isset($_POST['Name']))
 // {
 //     $nm= $_POST["Name"];
 //     $Ag=$_POST["Age"];
-    
+
 //     if($nm!="")
 //     {
-       
+
 //         mysqli_query($con,"insert into EmpDet (Nm,Age) values ('".$nm."','.$Ag.')");
 //         echo "<script>window.location.href=ViewAll.php</script>";
 //         exit();
@@ -103,17 +98,17 @@ if(isset($_POST['Name']))
 
 //  if(isset($_POST['Name']) && $_POST['Name'] != "")
 // {
-    
+
 //     $username = $_POST['Name'];
 //     $emailadd = $_POST['Age'];
 //     echo "91 <BR>";
 //     $sql = "INSERT INTO EmpDet (Nm,Age) VALUES ('$username','$emailadd')";
 //     if(empty($username) || empty($emailadd)){
-        
+
 //           echo "Please input all field";
 //           exit;
-//     } 
-//     else 
+//     }
+//     else
 //     {
 //            if ($con->query($sql)) {
 //               echo "Inserted! <BR>";
@@ -125,8 +120,7 @@ if(isset($_POST['Name']))
 //      }
 //      // = null;
 //      $_POST = NULL;
-// }
-?>
+// } ?>
     <script src="jquery-3.6.0.min.js"></script>
     <script src="bootstrap.min.js"></script>
 </body>
